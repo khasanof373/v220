@@ -1,0 +1,58 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="vehicle">
+      <h2 data-cy="vehicleDetailsHeading"><span jhiTranslate="v220App.vehicle.detail.title">Vehicle</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ vehicle.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="v220App.vehicle.modelId">Model Id</span></dt>
+        <dd>
+          <span>{{ vehicle.modelId }}</span>
+        </dd>
+        <dt><span jhiTranslate="v220App.vehicle.manufactureId">Manufacture Id</span></dt>
+        <dd>
+          <span>{{ vehicle.manufactureId }}</span>
+        </dd>
+        <dt><span jhiTranslate="v220App.vehicle.imageUrl">Image Url</span></dt>
+        <dd>
+          <span>{{ vehicle.imageUrl }}</span>
+        </dd>
+        <dt><span jhiTranslate="v220App.vehicle.status">Status</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'v220App.Status.' + vehicle.status }}">{{ vehicle.status }}</span>
+        </dd>
+        <dt><span jhiTranslate="v220App.vehicle.carNumber">Car Number</span></dt>
+        <dd>
+          <span>{{ vehicle.carNumber }}</span>
+        </dd>
+        <dt><span jhiTranslate="v220App.vehicle.tag">Tag</span></dt>
+        <dd>
+          <div *ngIf="vehicle.tag">
+            <a [routerLink]="['/ocpp-tag', vehicle.tag.id, 'view']">{{ vehicle.tag.idTag }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="v220App.vehicle.user">User</span></dt>
+        <dd>
+          <span>{{ vehicle.user?.id }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Назад</span>
+      </button>
+
+      <button type="button" [routerLink]="['/vehicle', vehicle.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Изменить</span>
+      </button>
+    </div>
+  </div>
+</div>

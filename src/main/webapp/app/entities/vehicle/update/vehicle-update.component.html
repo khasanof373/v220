@@ -1,0 +1,135 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-vehicle-heading" data-cy="VehicleCreateUpdateHeading" jhiTranslate="v220App.vehicle.home.createOrEditLabel">
+        Создать или отредактировать Vehicle
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="v220App.vehicle.modelId" for="field_modelId">Model Id</label>
+          <input type="number" class="form-control" name="modelId" id="field_modelId" data-cy="modelId" formControlName="modelId" />
+          <div *ngIf="editForm.get('modelId')!.invalid && (editForm.get('modelId')!.dirty || editForm.get('modelId')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('modelId')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              Это поле обязательно к заполнению.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('modelId')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              Это поле должно быть число.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="v220App.vehicle.manufactureId" for="field_manufactureId">Manufacture Id</label>
+          <input
+            type="number"
+            class="form-control"
+            name="manufactureId"
+            id="field_manufactureId"
+            data-cy="manufactureId"
+            formControlName="manufactureId"
+          />
+          <div
+            *ngIf="
+              editForm.get('manufactureId')!.invalid && (editForm.get('manufactureId')!.dirty || editForm.get('manufactureId')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('manufactureId')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              Это поле обязательно к заполнению.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('manufactureId')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              Это поле должно быть число.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="v220App.vehicle.imageUrl" for="field_imageUrl">Image Url</label>
+          <input type="text" class="form-control" name="imageUrl" id="field_imageUrl" data-cy="imageUrl" formControlName="imageUrl" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="v220App.vehicle.status" for="field_status">Status</label>
+          <select class="form-control" name="status" formControlName="status" id="field_status" data-cy="status">
+            <option [ngValue]="null">{{ 'v220App.Status.null' | translate }}</option>
+            <option *ngFor="let status of statusValues" [value]="status">{{ 'v220App.Status.' + status | translate }}</option>
+          </select>
+          <div *ngIf="editForm.get('status')!.invalid && (editForm.get('status')!.dirty || editForm.get('status')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('status')?.errors?.required" jhiTranslate="entity.validation.required">
+              Это поле обязательно к заполнению.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="v220App.vehicle.carNumber" for="field_carNumber">Car Number</label>
+          <input type="text" class="form-control" name="carNumber" id="field_carNumber" data-cy="carNumber" formControlName="carNumber" />
+          <div *ngIf="editForm.get('carNumber')!.invalid && (editForm.get('carNumber')!.dirty || editForm.get('carNumber')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('carNumber')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              Это поле обязательно к заполнению.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="v220App.vehicle.tag" for="field_tag">Tag</label>
+          <select class="form-control" id="field_tag" data-cy="tag" name="tag" formControlName="tag" [compareWith]="compareOcppTag">
+            <option [ngValue]="null"></option>
+            <option [ngValue]="ocppTagOption" *ngFor="let ocppTagOption of ocppTagsSharedCollection">{{ ocppTagOption.idTag }}</option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="v220App.vehicle.user" for="field_user">User</label>
+          <select class="form-control" id="field_user" data-cy="user" name="user" formControlName="user" [compareWith]="compareUser">
+            <option [ngValue]="null"></option>
+            <option [ngValue]="userOption" *ngFor="let userOption of usersSharedCollection">{{ userOption.id }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Отмена</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Сохранить</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

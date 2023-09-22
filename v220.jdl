@@ -1,0 +1,324 @@
+/**
+ * Статус: Новый, Активный, Удалённый
+ */
+enum Status {
+	NEW
+	APPROVED
+    ACTIVE
+    DELETED
+}
+
+/** Адрес */
+entity Address {
+	/** Наименование */
+	name String required unique maxlength(64)
+	/** Улица */
+	street String maxlength(128),
+	/** Номер дома */
+	houseNumber String maxlength(32),
+	/** Город */
+	city String maxlength(32),
+	/** Страна */
+	country String maxlength(2)
+    /** Статус */
+    status Status required
+}
+
+enum RegistrationStatus { ACCEPTED, }
+enum DiagnosticsStatus { UPLOADED, }
+
+/** Зарядное устройство */
+entity ChargeBox {
+	/** ID устройства */
+	chargeBoxId String required unique maxlength(255),
+    /** Статус */
+    status Status required
+	/** Адрес конечной точки  */
+	endpointAddress String maxlength(64),
+	/** Рабочий протокол */
+	ocppProtocol String maxlength(32),
+	/** Статус регистрации */
+	registrationStatus RegistrationStatus required,
+	/** Поставщик точки заряда */
+	chargePointVendor String maxlength(20),
+	/** Модель точки заряда */
+	chargePointModel String maxlength(20),
+	/** Серия точки заряда */
+	chargePointSerialNumber String maxlength(25),
+	/** Серия контроллера */
+	chargeBoxSerialNumber String maxlength(25),
+	/** Версия прошивки */
+	fwVersion String maxlength(50),
+	/** Статус обновления прошивки */
+	fwUpdateStatus String maxlength(32),
+	/** Дата обновления прошивки */
+	fwUpdateTimestamp Instant,
+	/** ID карты с интегральной схемой */
+	iccid String maxlength(20),
+	/** Номер сим карты */
+	imsi String maxlength(20),
+	/** Тип мощности точки заряда */
+	meterType String maxlength(25),
+	/** Серия мощности */
+	meterSerialNumber String maxlength(25),
+	/** Статус диагностики */
+	diagnosticsStatus DiagnosticsStatus,
+	/** Дата диагностики */
+	diagnosticsTimestamp Instant,
+	/** Последняя время связи */
+	lastHeartbeatTimestamp Instant,
+	/** Описание */
+	description TextBlob,
+	/** Примечание */
+	note TextBlob,
+	/** Широта */
+	locationLatitude BigDecimal,
+	/** Долгота */
+	locationLongitude BigDecimal,
+	/** Адрес администратора */
+	adminAddress String maxlength(128),
+	/** insertConnectorStatusAfterTransactionMsg */
+	insertConnectorStatusAfterTransactionMsg Boolean
+}
+
+enum ChargingProfilePurposeType { CHARGE_POINT_MAX_PROFILE, }
+enum ChargingProfileKindType { ABSOLUTE, }
+enum RecurrencyKindType { DAILY, }
+enum ChargingRateUnitType { W, }
+
+/** Профиль зарядки */
+entity ChargingProfile {
+	/** Наименование */
+	name String required unique maxlength(64)
+    /** Статус */
+    status Status required
+	/** Уровень стека */
+	stackLevel Integer required,
+	/** Цель профиля */
+	chargingProfilePurpose ChargingProfilePurposeType required,
+	/** Тип профиля */
+	chargingProfileKind ChargingProfileKindType required,
+	/** Тип повторения */
+	recurrencyKind RecurrencyKindType,
+	/** Действителен с */
+	validFrom Instant,
+	/** Действителен до */
+	validTo Instant,
+	/** Продолжительность в секундах */
+	durationInSeconds Integer,
+	/** Расписание начала */
+	startSchedule Instant,
+	/** Единица тарифной ставки */
+	chargingRateUnit ChargingRateUnitType required,
+	/** Мин скорость зарядки */
+	minChargingRate BigDecimal,
+	/** Описание */
+	description String maxlength(255),
+	/** Примечание */
+	note String maxlength(255)
+}
+
+/** Период графика зарядки */
+entity ChargingSchedulePeriod {
+	/** Период начала в секундах */
+	startPeriodInSeconds Integer required,
+	/** Ограничение мощности */
+	powerLimit BigDecimal required,
+	/** количество фаз */
+	numberPhases Integer
+}
+
+/** Разъем */
+entity Connector {
+	/** ID разъема */
+	connectorId Integer required
+}
+
+/** Значение счетчика разъема */
+entity ConnectorMeterValue {
+	/** Время */
+	valueTimestamp Instant,
+	/** Значение */
+	value String maxlength(32),
+	/** Контекст чтения */
+	readingContext String maxlength(255),
+	/** Формат */
+	format String maxlength(32),
+	/** Измеряемый показатель */
+	measurand String maxlength(64),
+	/** Расположение */
+	location String maxlength(32),
+	/** Единица измерения */
+	unit String maxlength(32),
+	/** Фаза */
+	phase String maxlength(32)
+}
+
+/** Статус разъема */
+entity ConnectorStatus {
+	/** Время */
+	statusTimestamp Instant,
+	/** Статус */
+	status String maxlength(255),
+	/** Код ошибки */
+	errorCode String maxlength(32),
+	/** Инфо ошибки */
+	errorInfo String maxlength(64),
+	/** ID поставщика */
+	vendorId String maxlength(32),
+	/** Код ошибки поставщика */
+	vendorErrorCode String maxlength(32)
+}
+
+/** OcppTag */
+entity OcppTag {
+	/** ID-тег */
+	idTag String required unique maxlength(128),
+	/** Срок действия */
+	expiryDate Instant,
+	/** Макс активных транзакций */
+	maxActiveTransactionCount Integer required,
+	/** Примечание */
+	note TextBlob
+    /** Статус */
+    status Status required
+    /** Пользователь */
+    username String maxlength(64)
+}
+
+///** VIEW */
+//entity OcppTagActivity {
+//	/** ocppTagPk */
+//	ocppTagPk Integer required,
+//	/** idTag */
+//	idTag String required maxlength(128),
+//	/** parentIdTag */
+//	parentIdTag String maxlength(255),
+//	/** expiryDate */
+//	expiryDate Instant,
+//	/** maxActiveTransactionCount */
+//	maxActiveTransactionCount Integer required,
+//	/** note */
+//	note TextBlob,
+//	/** activeTransactionCount */
+//	activeTransactionCount Long,
+//	/** inTransaction */
+//	inTransaction Integer,
+//	/** blocked */
+//	blocked Integer required
+//}
+
+enum ReservationStatus { WAITING, ACCEPTED, USED, CANCELLED, }
+
+/** Бронирование */
+entity Reservation {
+	/** Время начало */
+	startDatetime Instant,
+	/** Дата истечения срока действия */
+	expiryDatetime Instant,
+	/** status */
+	status ReservationStatus required
+}
+
+///** VIEW */
+//entity Transaction {
+//	/** transactionPk */
+//	transactionPk Integer required,
+//	/** connectorPk */
+//	connectorPk Integer required,
+//	/** idTag */
+//	idTag String required maxlength(128),
+//	/** startEventTimestamp */
+//	startEventTimestamp Instant required,
+//	/** startTimestamp */
+//	startTimestamp Instant,
+//	/** startValue */
+//	startValue String maxlength(64),
+//	/** stopEventActor */
+//	stopEventActor StopEventActor,
+//	/** stopEventTimestamp */
+//	stopEventTimestamp Instant,
+//	/** stopTimestamp */
+//	stopTimestamp Instant,
+//	/** stopValue */
+//	stopValue String maxlength(64),
+//	/** stopReason */
+//	stopReason String maxlength(64)
+//}
+
+/** Начало транзакции */
+entity TransactionStart {
+	/** Время события */
+	eventTimestamp Instant required,
+	/** Время начало */
+	startTimestamp Instant,
+	/** Начальное значение */
+	startValue String maxlength(64)
+}
+
+enum TransactionStopEventActor { MANUAL, STATION, }
+
+/** Остановка транзакции */
+entity TransactionStop {
+	/** Время события */
+	eventTimestamp Instant required,
+	/** Актер события */
+	eventActor TransactionStopEventActor,
+	/** Время окончания */
+	stopTimestamp Instant required,
+	/** Конечное значение */
+	stopValue String required maxlength(64),
+	/** Причина остановки */
+	stopReason String maxlength(64)
+}
+
+/** Ошибка остановки транзакции */
+entity TransactionStopFailed {
+	/** Время события */
+	eventTimestamp Instant required,
+	/** Актер события */
+	eventActor TransactionStopEventActor,
+	/** Время окончания */
+	stopTimestamp Instant required,
+	/** Конечное значение */
+	stopValue String maxlength(64),
+	/** Причина остановки */
+	stopReason String maxlength(64),
+	/** Причина неудачи */
+	failReason String maxlength(64)
+}
+
+
+// Relations
+relationship ManyToOne {
+	ChargeBox{address(name)} to Address
+    ChargingSchedulePeriod{chargingProfile(name) required} to ChargingProfile
+    Connector{chargeBox(chargeBoxId) required} to ChargeBox
+    ConnectorMeterValue{transactionStart} to TransactionStart
+    ConnectorMeterValue{connector(connectorId) required} to Connector
+    ConnectorStatus{connector(connectorId) required} to Connector
+    OcppTag{parentTag(idTag)} to OcppTag
+    Reservation{connector(connectorId) required} to Connector
+    Reservation{tag(idTag) required} to OcppTag
+    TransactionStart{connector(connectorId) required} to Connector
+    TransactionStart{tag(idTag) required} to OcppTag
+    TransactionStop{transactionStart required} to TransactionStart
+    //User{tag(login)} to OcppTag{user}
+    //User{address(name)} to Address{user}
+}
+
+// TODO This is a pure ManyToMany relation (delete me and decide owner side)
+relationship ManyToMany {
+	ChargingProfile{connector(connectorId) required} to Connector{chargingProfile(name)}
+}
+
+relationship OneToOne {
+	Reservation{transactionStart} to TransactionStart{reservation}
+}
+
+// Options
+service * with serviceClass
+paginate * with pagination
+dto * with mapstruct
+filter *
+

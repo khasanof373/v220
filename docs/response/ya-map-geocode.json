@@ -1,0 +1,752 @@
+
+
+
+{
+  "status": "success",
+  "data": {
+    "type": "FeatureCollection",
+    "properties": {
+      "ResponseMetaData": {
+        "SearchResponse": {
+          "found": 8,
+          "context": "ZAAAAAgAEAAaKAoSCQAAAAAAkHZAEQAAAAAAoGZAEhIJAAAAAAAA8L8RAAAAAAAA8L8iAQAoyAE4AED+//////////8BSAFiCm1heGFkdj0yMDBqAJ0BzcxMPaABAKgBAOoBAPIBAPgBAIICAIoCAJICAJoCAA==",
+          "display": "single",
+          "boundedBy": [
+            [
+              69.243984,
+              41.324154
+            ],
+            [
+              69.252194,
+              41.330343
+            ]
+          ],
+          "Point": {
+            "type": "Point",
+            "coordinates": [
+              69.248089,
+              41.32724857
+            ]
+          },
+          "SourceMetaDataList": {
+            "GeocoderResponseMetaData": {
+              "request": "41.32725359765577,69.24811357327489",
+              "results": 10,
+              "found": 8,
+              "Point": {
+                "type": "Point",
+                "coordinates": [
+                  69.24811357327489,
+                  41.32725359765577
+                ]
+              }
+            }
+          }
+        },
+        "SearchRequest": {
+          "request": "41.32725359765577,69.24811357327489",
+          "skip": 0,
+          "results": 10,
+          "boundedBy": [
+            [
+              37.048427,
+              55.43644866
+            ],
+            [
+              38.175903,
+              56.04690174
+            ]
+          ]
+        }
+      }
+    },
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {
+          "id": "1",
+          "name": "массив Хадра, 21",
+          "description": "Шайхантахурский район, Ташкент",
+          "boundedBy": [
+            [
+              69.243984,
+              41.324154
+            ],
+            [
+              69.252194,
+              41.330343
+            ]
+          ],
+          "URIMetaData": {
+            "URIs": [
+              {
+                "uri": "ymapsbm1://geo?data=CgoxNTIyNTIyODM4Ej1Pyrt6YmVraXN0b24sIFRvc2hrZW50LCBTaGF5eG9udG9odXIgdHVtYW5pLCBYYWRyYSBkYWhhc2ksIDIxIgoNBX-KQhUZTyVC"
+              }
+            ],
+            "URI": {
+              "uri": "ymapsbm1://geo?data=CgoxNTIyNTIyODM4Ej1Pyrt6YmVraXN0b24sIFRvc2hrZW50LCBTaGF5eG9udG9odXIgdHVtYW5pLCBYYWRyYSBkYWhhc2ksIDIxIgoNBX-KQhUZTyVC"
+            }
+          },
+          "GeocoderMetaData": {
+            "precision": "exact",
+            "text": "Ташкент, Шайхантахурский район, массив Хадра, 21",
+            "kind": "house",
+            "Address": {
+              "country_code": "UZ",
+              "formatted": "Ташкент, Шайхантахурский район, массив Хадра, 21",
+              "Components": [
+                {
+                  "kind": "country",
+                  "name": "Узбекистан"
+                },
+                {
+                  "kind": "province",
+                  "name": "Ташкент"
+                },
+                {
+                  "kind": "locality",
+                  "name": "Ташкент"
+                },
+                {
+                  "kind": "district",
+                  "name": "Шайхантахурский район"
+                },
+                {
+                  "kind": "district",
+                  "name": "массив Хадра"
+                },
+                {
+                  "kind": "house",
+                  "name": "21"
+                }
+              ]
+            },
+            "AddressDetails": {
+              "Country": {
+                "AddressLine": "Ташкент, Шайхантахурский район, массив Хадра, 21",
+                "CountryNameCode": "UZ",
+                "CountryName": "Узбекистан",
+                "AdministrativeArea": {
+                  "AdministrativeAreaName": "Ташкент",
+                  "Locality": {
+                    "LocalityName": "Ташкент",
+                    "DependentLocality": {
+                      "DependentLocalityName": "Шайхантахурский район",
+                      "DependentLocality": {
+                        "DependentLocalityName": "массив Хадра",
+                        "Premise": {
+                          "PremiseNumber": "21"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "geometries": [
+          {
+            "type": "Point",
+            "coordinates": [
+              69.248089,
+              41.327249
+            ]
+          }
+        ],
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            69.248089,
+            41.327249
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "id": "2",
+          "name": "Ганга",
+          "description": "Ташкент",
+          "boundedBy": [
+            [
+              69.24605,
+              41.325922
+            ],
+            [
+              69.251377,
+              41.328732
+            ]
+          ],
+          "URIMetaData": {
+            "URIs": [
+              {
+                "uri": "ymapsbm1://geo?data=CgozNDI1ODI4MjY1Eh1Pyrt6YmVraXN0b24sIFRvc2hrZW50LCBHYW5nYSIKDQt_ikIVjk8lQg,,"
+              }
+            ],
+            "URI": {
+              "uri": "ymapsbm1://geo?data=CgozNDI1ODI4MjY1Eh1Pyrt6YmVraXN0b24sIFRvc2hrZW50LCBHYW5nYSIKDQt_ikIVjk8lQg,,"
+            }
+          },
+          "GeocoderMetaData": {
+            "precision": "other",
+            "text": "Ташкент, Ганга",
+            "kind": "other",
+            "Address": {
+              "country_code": "UZ",
+              "formatted": "Ташкент, Ганга",
+              "Components": [
+                {
+                  "kind": "country",
+                  "name": "Узбекистан"
+                },
+                {
+                  "kind": "province",
+                  "name": "Ташкент"
+                },
+                {
+                  "kind": "locality",
+                  "name": "Ташкент"
+                },
+                {
+                  "kind": "other",
+                  "name": "Ганга"
+                }
+              ]
+            },
+            "AddressDetails": {
+              "Country": {
+                "AddressLine": "Ташкент, Ганга",
+                "CountryNameCode": "UZ",
+                "CountryName": "Узбекистан",
+                "AdministrativeArea": {
+                  "AdministrativeAreaName": "Ташкент",
+                  "Locality": {
+                    "LocalityName": "Ташкент",
+                    "Premise": {
+                      "PremiseName": "Ганга"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "geometries": [
+          {
+            "type": "Point",
+            "coordinates": [
+              69.248134,
+              41.327689
+            ]
+          }
+        ],
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            69.248134,
+            41.327689
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "id": "3",
+          "name": "массив Хадра",
+          "description": "Шайхантахурский район, Ташкент",
+          "boundedBy": [
+            [
+              69.243103,
+              41.321168
+            ],
+            [
+              69.255051,
+              41.328732
+            ]
+          ],
+          "URIMetaData": {
+            "URIs": [
+              {
+                "uri": "ymapsbm1://geo?data=CgoxNTA4NTc3NDgxEjlPyrt6YmVraXN0b24sIFRvc2hrZW50LCBTaGF5eG9udG9odXIgdHVtYW5pLCBYYWRyYSBkYWhhc2kiCg2vf4pCFX5MJUI,"
+              }
+            ],
+            "URI": {
+              "uri": "ymapsbm1://geo?data=CgoxNTA4NTc3NDgxEjlPyrt6YmVraXN0b24sIFRvc2hrZW50LCBTaGF5eG9udG9odXIgdHVtYW5pLCBYYWRyYSBkYWhhc2kiCg2vf4pCFX5MJUI,"
+            }
+          },
+          "GeocoderMetaData": {
+            "precision": "other",
+            "text": "Ташкент, Шайхантахурский район, массив Хадра",
+            "kind": "district",
+            "Address": {
+              "country_code": "UZ",
+              "formatted": "Ташкент, Шайхантахурский район, массив Хадра",
+              "Components": [
+                {
+                  "kind": "country",
+                  "name": "Узбекистан"
+                },
+                {
+                  "kind": "province",
+                  "name": "Ташкент"
+                },
+                {
+                  "kind": "locality",
+                  "name": "Ташкент"
+                },
+                {
+                  "kind": "district",
+                  "name": "Шайхантахурский район"
+                },
+                {
+                  "kind": "district",
+                  "name": "массив Хадра"
+                }
+              ]
+            },
+            "AddressDetails": {
+              "Country": {
+                "AddressLine": "Ташкент, Шайхантахурский район, массив Хадра",
+                "CountryNameCode": "UZ",
+                "CountryName": "Узбекистан",
+                "AdministrativeArea": {
+                  "AdministrativeAreaName": "Ташкент",
+                  "Locality": {
+                    "LocalityName": "Ташкент",
+                    "DependentLocality": {
+                      "DependentLocalityName": "Шайхантахурский район",
+                      "DependentLocality": {
+                        "DependentLocalityName": "массив Хадра"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "geometries": [
+          {
+            "type": "Point",
+            "coordinates": [
+              69.249383,
+              41.324696
+            ]
+          }
+        ],
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            69.249383,
+            41.324696
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "id": "4",
+          "name": "махалля Хадра",
+          "description": "Шайхантахурский район, Ташкент",
+          "boundedBy": [
+            [
+              69.240732,
+              41.321168
+            ],
+            [
+              69.255051,
+              41.328732
+            ]
+          ],
+          "URIMetaData": {
+            "URIs": [
+              {
+                "uri": "ymapsbm1://geo?data=CgoxOTQ0Njg0OTQxEjxPyrt6YmVraXN0b24sIFRvc2hrZW50LCBTaGF5eG9udG9odXIgdHVtYW5pLCBYYWRyYSBtYWhhbGxhc2kiCg2qfopCFXxLJUI,"
+              }
+            ],
+            "URI": {
+              "uri": "ymapsbm1://geo?data=CgoxOTQ0Njg0OTQxEjxPyrt6YmVraXN0b24sIFRvc2hrZW50LCBTaGF5eG9udG9odXIgdHVtYW5pLCBYYWRyYSBtYWhhbGxhc2kiCg2qfopCFXxLJUI,"
+            }
+          },
+          "GeocoderMetaData": {
+            "precision": "other",
+            "text": "Ташкент, Шайхантахурский район, махалля Хадра",
+            "kind": "other",
+            "Address": {
+              "country_code": "UZ",
+              "formatted": "Ташкент, Шайхантахурский район, махалля Хадра",
+              "Components": [
+                {
+                  "kind": "country",
+                  "name": "Узбекистан"
+                },
+                {
+                  "kind": "province",
+                  "name": "Ташкент"
+                },
+                {
+                  "kind": "locality",
+                  "name": "Ташкент"
+                },
+                {
+                  "kind": "district",
+                  "name": "Шайхантахурский район"
+                },
+                {
+                  "kind": "other",
+                  "name": "махалля Хадра"
+                }
+              ]
+            },
+            "AddressDetails": {
+              "Country": {
+                "AddressLine": "Ташкент, Шайхантахурский район, махалля Хадра",
+                "CountryNameCode": "UZ",
+                "CountryName": "Узбекистан",
+                "AdministrativeArea": {
+                  "AdministrativeAreaName": "Ташкент",
+                  "Locality": {
+                    "LocalityName": "Ташкент",
+                    "DependentLocality": {
+                      "DependentLocalityName": "Шайхантахурский район",
+                      "Premise": {
+                        "PremiseName": "махалля Хадра"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "geometries": [
+          {
+            "type": "Point",
+            "coordinates": [
+              69.247388,
+              41.323714
+            ]
+          }
+        ],
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            69.247388,
+            41.323714
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "id": "5",
+          "name": "Шайхантахурский район",
+          "description": "Ташкент",
+          "boundedBy": [
+            [
+              69.15982,
+              41.299656
+            ],
+            [
+              69.274922,
+              41.350085
+            ]
+          ],
+          "URIMetaData": {
+            "URIs": [
+              {
+                "uri": "ymapsbm1://geo?data=CgoxNTYzMDY2MTAyEitPyrt6YmVraXN0b24sIFRvc2hrZW50LCBTaGF5eG9udG9odXIgdHVtYW5pIgoND3aKQhVGRSVC"
+              }
+            ],
+            "URI": {
+              "uri": "ymapsbm1://geo?data=CgoxNTYzMDY2MTAyEitPyrt6YmVraXN0b24sIFRvc2hrZW50LCBTaGF5eG9udG9odXIgdHVtYW5pIgoND3aKQhVGRSVC"
+            }
+          },
+          "GeocoderMetaData": {
+            "precision": "other",
+            "text": "Ташкент, Шайхантахурский район",
+            "kind": "district",
+            "Address": {
+              "country_code": "UZ",
+              "formatted": "Ташкент, Шайхантахурский район",
+              "Components": [
+                {
+                  "kind": "country",
+                  "name": "Узбекистан"
+                },
+                {
+                  "kind": "province",
+                  "name": "Ташкент"
+                },
+                {
+                  "kind": "locality",
+                  "name": "Ташкент"
+                },
+                {
+                  "kind": "district",
+                  "name": "Шайхантахурский район"
+                }
+              ]
+            },
+            "AddressDetails": {
+              "Country": {
+                "AddressLine": "Ташкент, Шайхантахурский район",
+                "CountryNameCode": "UZ",
+                "CountryName": "Узбекистан",
+                "AdministrativeArea": {
+                  "AdministrativeAreaName": "Ташкент",
+                  "Locality": {
+                    "LocalityName": "Ташкент",
+                    "DependentLocality": {
+                      "DependentLocalityName": "Шайхантахурский район"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "geometries": [
+          {
+            "type": "Point",
+            "coordinates": [
+              69.230581,
+              41.317653
+            ]
+          }
+        ],
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            69.230581,
+            41.317653
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "id": "6",
+          "name": "Ташкент",
+          "boundedBy": [
+            [
+              69.121678,
+              41.163577
+            ],
+            [
+              69.477725,
+              41.422501
+            ]
+          ],
+          "URIMetaData": {
+            "URIs": [
+              {
+                "uri": "ymapsbm1://geo?data=CgoxNzUwNzA5NDM4EhZPyrt6YmVraXN0b24sIFRvc2hrZW50IgoNO4-KQhWjPiVC"
+              }
+            ],
+            "URI": {
+              "uri": "ymapsbm1://geo?data=CgoxNzUwNzA5NDM4EhZPyrt6YmVraXN0b24sIFRvc2hrZW50IgoNO4-KQhWjPiVC"
+            }
+          },
+          "GeocoderMetaData": {
+            "precision": "other",
+            "text": "Ташкент",
+            "kind": "province",
+            "Address": {
+              "country_code": "UZ",
+              "formatted": "Ташкент",
+              "Components": [
+                {
+                  "kind": "country",
+                  "name": "Узбекистан"
+                },
+                {
+                  "kind": "province",
+                  "name": "Ташкент"
+                }
+              ]
+            },
+            "AddressDetails": {
+              "Country": {
+                "AddressLine": "Ташкент",
+                "CountryNameCode": "UZ",
+                "CountryName": "Узбекистан",
+                "AdministrativeArea": {
+                  "AdministrativeAreaName": "Ташкент"
+                }
+              }
+            }
+          }
+        },
+        "geometries": [
+          {
+            "type": "Point",
+            "coordinates": [
+              69.279746,
+              41.311164
+            ]
+          }
+        ],
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            69.279746,
+            41.311164
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "id": "7",
+          "name": "Ташкент",
+          "boundedBy": [
+            [
+              69.121678,
+              41.163577
+            ],
+            [
+              69.477725,
+              41.422501
+            ]
+          ],
+          "URIMetaData": {
+            "URIs": [
+              {
+                "uri": "ymapsbm1://geo?data=Cgk3NzEyODg4ODUSFk_Ku3piZWtpc3RvbiwgVG9zaGtlbnQiCg06j4pCFaA-JUI,"
+              }
+            ],
+            "URI": {
+              "uri": "ymapsbm1://geo?data=Cgk3NzEyODg4ODUSFk_Ku3piZWtpc3RvbiwgVG9zaGtlbnQiCg06j4pCFaA-JUI,"
+            }
+          },
+          "GeocoderMetaData": {
+            "precision": "other",
+            "text": "Ташкент",
+            "kind": "locality",
+            "Address": {
+              "country_code": "UZ",
+              "formatted": "Ташкент",
+              "Components": [
+                {
+                  "kind": "country",
+                  "name": "Узбекистан"
+                },
+                {
+                  "kind": "province",
+                  "name": "Ташкент"
+                },
+                {
+                  "kind": "locality",
+                  "name": "Ташкент"
+                }
+              ]
+            },
+            "AddressDetails": {
+              "Country": {
+                "AddressLine": "Ташкент",
+                "CountryNameCode": "UZ",
+                "CountryName": "Узбекистан",
+                "AdministrativeArea": {
+                  "AdministrativeAreaName": "Ташкент",
+                  "Locality": {
+                    "LocalityName": "Ташкент"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "geometries": [
+          {
+            "type": "Point",
+            "coordinates": [
+              69.279737,
+              41.311158
+            ]
+          }
+        ],
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            69.279737,
+            41.311158
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "id": "8",
+          "name": "Ташкентская область",
+          "boundedBy": [
+            [
+              68.634836,
+              40.188342
+            ],
+            [
+              71.261133,
+              42.288173
+            ]
+          ],
+          "URIMetaData": {
+            "URIs": [
+              {
+                "uri": "ymapsbm1://geo?data=CgoxNDk0NTYxMzUwEh9Pyrt6YmVraXN0b24sIFRvc2hrZW50IHZpbG95YXRpIgoNRG2LQhWEcCRC"
+              }
+            ],
+            "URI": {
+              "uri": "ymapsbm1://geo?data=CgoxNDk0NTYxMzUwEh9Pyrt6YmVraXN0b24sIFRvc2hrZW50IHZpbG95YXRpIgoNRG2LQhWEcCRC"
+            }
+          },
+          "GeocoderMetaData": {
+            "precision": "other",
+            "text": "Ташкентская область",
+            "kind": "province",
+            "Address": {
+              "country_code": "UZ",
+              "formatted": "Ташкентская область",
+              "Components": [
+                {
+                  "kind": "country",
+                  "name": "Узбекистан"
+                },
+                {
+                  "kind": "province",
+                  "name": "Ташкентская область"
+                }
+              ]
+            },
+            "AddressDetails": {
+              "Country": {
+                "AddressLine": "Ташкентская область",
+                "CountryNameCode": "UZ",
+                "CountryName": "Узбекистан",
+                "AdministrativeArea": {
+                  "AdministrativeAreaName": "Ташкентская область"
+                }
+              }
+            }
+          }
+        },
+        "geometries": [
+          {
+            "type": "Point",
+            "coordinates": [
+              69.713407,
+              41.109877
+            ]
+          }
+        ],
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            69.713407,
+            41.109877
+          ]
+        }
+      }
+    ]
+  }
+}

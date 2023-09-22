@@ -1,0 +1,30 @@
+{
+  "v220App": {
+    "vehicle": {
+      "home": {
+        "title": "Vehicles",
+        "refreshListLabel": "Обновить список",
+        "createLabel": "Создать новый Vehicle",
+        "createOrEditLabel": "Создать или отредактировать Vehicle",
+        "notFound": "Vehicles не найдено"
+      },
+      "created": "Новый Vehicle создан с идентификатором {{ param }}",
+      "updated": "Vehicle обновлен с идентификатором {{ param }}",
+      "deleted": "Vehicle удален с идентификатором {{ param }}",
+      "delete": {
+        "question": "Вы уверены что хотите удалить Vehicle {{ id }}?"
+      },
+      "detail": {
+        "title": "Vehicle"
+      },
+      "id": "ID",
+      "modelId": "Model Id",
+      "manufactureId": "Manufacture Id",
+      "imageUrl": "Image Url",
+      "status": "Status",
+      "carNumber": "Car Number",
+      "tag": "Tag",
+      "user": "User"
+    }
+  }
+}

@@ -1,0 +1,136 @@
+<div>
+  <h2 id="page-heading" data-cy="VehicleHeading">
+    <span jhiTranslate="v220App.vehicle.home.title">Vehicles</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="v220App.vehicle.home.refreshListLabel">Обновить список</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-vehicle"
+        [routerLink]="['/vehicle/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="v220App.vehicle.home.createLabel"> Создать новый Vehicle </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="vehicles?.length === 0">
+    <span jhiTranslate="v220App.vehicle.home.notFound">Vehicles не найдено</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="vehicles && vehicles.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="modelId">
+            <div class="d-flex">
+              <span jhiTranslate="v220App.vehicle.modelId">Model Id</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="manufactureId">
+            <div class="d-flex">
+              <span jhiTranslate="v220App.vehicle.manufactureId">Manufacture Id</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="imageUrl">
+            <div class="d-flex">
+              <span jhiTranslate="v220App.vehicle.imageUrl">Image Url</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="status">
+            <div class="d-flex">
+              <span jhiTranslate="v220App.vehicle.status">Status</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="carNumber">
+            <div class="d-flex">
+              <span jhiTranslate="v220App.vehicle.carNumber">Car Number</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="tag.idTag">
+            <div class="d-flex">
+              <span jhiTranslate="v220App.vehicle.tag">Tag</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="user.id">
+            <div class="d-flex">
+              <span jhiTranslate="v220App.vehicle.user">User</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let vehicle of vehicles; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/vehicle', vehicle.id, 'view']">{{ vehicle.id }}</a>
+          </td>
+          <td>{{ vehicle.modelId }}</td>
+          <td>{{ vehicle.manufactureId }}</td>
+          <td>{{ vehicle.imageUrl }}</td>
+          <td jhiTranslate="{{ 'v220App.Status.' + vehicle.status }}">{{ vehicle.status }}</td>
+          <td>{{ vehicle.carNumber }}</td>
+          <td>
+            <div *ngIf="vehicle.tag">
+              <a [routerLink]="['/ocpp-tag', vehicle.tag.id, 'view']">{{ vehicle.tag.idTag }}</a>
+            </div>
+          </td>
+          <td>
+            {{ vehicle.user?.id }}
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/vehicle', vehicle.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Просмотр</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/vehicle', vehicle.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Изменить</span>
+              </button>
+
+              <button type="submit" (click)="delete(vehicle)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Удалить</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
