@@ -159,3 +159,4 @@ Desktop.ini
 /.nyc_output/
 
 !lib/*.jar
+/src/main/java/uz/javlon/v220/
