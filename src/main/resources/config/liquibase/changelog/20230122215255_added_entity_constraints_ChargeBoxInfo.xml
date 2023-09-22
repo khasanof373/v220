@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity ChargeBoxInfo.
+    -->
+    <changeSet id="20230122215255-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="charge_box_id"
+                                 baseTableName="charge_box_info"
+                                 constraintName="fk_charge_box_info__charge_box_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="charge_box"/>
+
+        <addForeignKeyConstraint baseColumnNames="brand_id"
+                                 baseTableName="charge_box_info"
+                                 constraintName="fk_charge_box_info__brand_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="brand"/>
+
+        <addForeignKeyConstraint baseColumnNames="logo_id"
+                                 baseTableName="charge_box_info"
+                                 constraintName="fk_charge_box_info__logo_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="image"/>
+
+        <addForeignKeyConstraint baseColumnNames="address_id"
+                                 baseTableName="charge_box_info"
+                                 constraintName="fk_charge_box_info__address_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="address"/>
+    </changeSet>
+</databaseChangeLog>

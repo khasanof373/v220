@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <!--
+        Added the entity Image.
+    -->
+    <changeSet id="20230619162735-1" author="Manguberdi">
+        <addColumn tableName="brand">
+            <column name="app_store_url" type="varchar(128)" remarks="Приложение (URL Apple Store)">
+                <constraints nullable="true" />
+            </column>
+        </addColumn>
+    </changeSet>
+    <changeSet id="2023061916" author="Manguberdi">
+        <addAutoIncrement tableName="image" columnName="ord" columnDataType="integer"/>
+    </changeSet>
+</databaseChangeLog>

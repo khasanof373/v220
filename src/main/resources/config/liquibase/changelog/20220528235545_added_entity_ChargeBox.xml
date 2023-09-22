@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <!--
+        Added the entity ChargeBox.
+    -->
+    <changeSet id="20220528235545-1" author="jhipster">
+        <createTable tableName="charge_box" remarks="Зарядное устройство">
+            <column name="id" type="varchar(64)">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="status" type="varchar(32)" remarks="Статус" defaultValue="NEW">
+                <constraints nullable="false" />
+            </column>
+            <column name="endpoint_address" type="varchar(64)" remarks="Адрес конечной точки">
+                <constraints nullable="true" />
+            </column>
+            <column name="ocpp_protocol" type="varchar(32)" remarks="Рабочий протокол">
+                <constraints nullable="true" />
+            </column>
+            <column name="registration_status" type="varchar(32)" remarks="Статус регистрации" defaultValue="PENDING">
+                <constraints nullable="false" />
+            </column>
+            <column name="charge_point_vendor" type="varchar(20)" remarks="Поставщик точки заряда">
+                <constraints nullable="true" />
+            </column>
+            <column name="charge_point_model" type="varchar(20)" remarks="Модель точки заряда">
+                <constraints nullable="true" />
+            </column>
+            <column name="charge_point_serial_number" type="varchar(25)" remarks="Серия точки заряда">
+                <constraints nullable="true" />
+            </column>
+            <column name="charge_box_serial_number" type="varchar(25)" remarks="Серия контроллера">
+                <constraints nullable="true" />
+            </column>
+            <column name="fw_version" type="varchar(50)" remarks="Версия прошивки">
+                <constraints nullable="true" />
+            </column>
+            <column name="fw_update_status" type="varchar(32)" remarks="Статус обновления прошивки">
+                <constraints nullable="true" />
+            </column>
+            <column name="fw_update_timestamp" type="${datetimeType}" remarks="Дата обновления прошивки">
+                <constraints nullable="true" />
+            </column>
+            <column name="iccid" type="varchar(20)" remarks="ID карты с интегральной схемой">
+                <constraints nullable="true" />
+            </column>
+            <column name="imsi" type="varchar(20)" remarks="Номер сим карты">
+                <constraints nullable="true" />
+            </column>
+            <column name="meter_type" type="varchar(25)" remarks="Тип мощности точки заряда">
+                <constraints nullable="true" />
+            </column>
+            <column name="meter_serial_number" type="varchar(25)" remarks="Серия мощности">
+                <constraints nullable="true" />
+            </column>
+            <column name="diagnostics_status" type="varchar(32)" remarks="Статус диагностики" defaultValue="UPLOADED">
+                <constraints nullable="true" />
+            </column>
+            <column name="diagnostics_timestamp" type="${datetimeType}" remarks="Дата диагностики">
+                <constraints nullable="true" />
+            </column>
+            <column name="last_heartbeat_timestamp" type="${datetimeType}" remarks="Последняя время связи">
+                <constraints nullable="true" />
+            </column>
+            <column name="admin_address" type="varchar(128)" remarks="Адрес администратора">
+                <constraints nullable="true" />
+            </column>
+            <column name="insert_connector_status_after_transaction_msg" type="boolean" remarks="insertConnectorStatusAfterTransactionMsg">
+                <constraints nullable="true" />
+            </column>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
+        </createTable>
+        <dropDefaultValue tableName="charge_box" columnName="fw_update_timestamp" columnDataType="${datetimeType}"/>
+        <dropDefaultValue tableName="charge_box" columnName="diagnostics_timestamp" columnDataType="${datetimeType}"/>
+        <dropDefaultValue tableName="charge_box" columnName="last_heartbeat_timestamp" columnDataType="${datetimeType}"/>
+    </changeSet>
+
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here -->
+
+    <!--
+        Load sample data generated with Faker.js
+        - This data can be easily edited using a CSV editor (or even MS Excel) and
+          is located in the 'src/main/resources/config/liquibase/fake-data' directory
+        - By default this data is applied when running with the JHipster 'dev' profile.
+          This can be customized by adding or removing 'faker' in the 'spring.liquibase.contexts'
+          Spring Boot configuration key.
+    -->
+    <changeSet id="20220528235545-1-data" author="jhipster" context="faker">
+        <loadData
+                  file="config/liquibase/fake-data/charge_box.csv"
+                  separator=";"
+                  tableName="charge_box"
+                  usePreparedStatements="true">
+            <column name="id" type="string"/>
+            <column name="status" type="string"/>
+            <column name="endpoint_address" type="string"/>
+            <column name="ocpp_protocol" type="string"/>
+            <column name="registration_status" type="string"/>
+            <column name="charge_point_vendor" type="string"/>
+            <column name="charge_point_model" type="string"/>
+            <column name="charge_point_serial_number" type="string"/>
+            <column name="charge_box_serial_number" type="string"/>
+            <column name="fw_version" type="string"/>
+            <column name="fw_update_status" type="string"/>
+            <column name="fw_update_timestamp" type="date"/>
+            <column name="iccid" type="string"/>
+            <column name="imsi" type="string"/>
+            <column name="meter_type" type="string"/>
+            <column name="meter_serial_number" type="string"/>
+            <column name="diagnostics_status" type="string"/>
+            <column name="diagnostics_timestamp" type="date"/>
+            <column name="last_heartbeat_timestamp" type="date"/>
+            <column name="admin_address" type="string"/>
+            <column name="insert_connector_status_after_transaction_msg" type="boolean"/>
+            <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
+        </loadData>
+    </changeSet>
+</databaseChangeLog>

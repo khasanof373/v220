@@ -1,0 +1,8 @@
+{
+  "generator-jhipster:7.8.1": {
+    "promptValues": {
+      "packageName": "uz.javlon.v220",
+      "nativeLanguage": "ru"
+    }
+  }
+}

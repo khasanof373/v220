@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <!--
+        Added the entity ChargingProfile.
+    -->
+    <changeSet id="20220528235546-1" author="jhipster">
+        <createTable tableName="charging_profile" remarks="Профиль зарядки">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar(64)" remarks="Наименование">
+                <constraints nullable="false" unique="true" uniqueConstraintName="ux_charging_profile__name" />
+            </column>
+            <column name="status" type="varchar(32)" remarks="Статус" defaultValue="NEW">
+                <constraints nullable="false" />
+            </column>
+            <column name="stack_level" type="integer" remarks="Уровень стека">
+                <constraints nullable="false" />
+            </column>
+            <column name="charging_profile_purpose" type="varchar(32)" remarks="Цель профиля" defaultValue="UNKNOWN">
+                <constraints nullable="false" />
+            </column>
+            <column name="charging_profile_kind" type="varchar(255)" remarks="Тип профиля">
+                <constraints nullable="false" />
+            </column>
+            <column name="recurrency_kind" type="varchar(255)" remarks="Тип повторения">
+                <constraints nullable="true" />
+            </column>
+            <column name="valid_from" type="${datetimeType}" remarks="Действителен с">
+                <constraints nullable="true" />
+            </column>
+            <column name="valid_to" type="${datetimeType}" remarks="Действителен до">
+                <constraints nullable="true" />
+            </column>
+            <column name="duration_in_seconds" type="integer" remarks="Продолжительность в секундах">
+                <constraints nullable="true" />
+            </column>
+            <column name="start_schedule" type="${datetimeType}" remarks="Расписание начала">
+                <constraints nullable="true" />
+            </column>
+            <column name="charging_rate_unit" type="varchar(255)" remarks="Единица тарифной ставки">
+                <constraints nullable="false" />
+            </column>
+            <column name="min_charging_rate" type="decimal(21,2)" remarks="Мин скорость зарядки">
+                <constraints nullable="true" />
+            </column>
+            <column name="description" type="varchar(255)" remarks="Описание">
+                <constraints nullable="true" />
+            </column>
+            <column name="note" type="varchar(255)" remarks="Примечание">
+                <constraints nullable="true" />
+            </column>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
+        </createTable>
+        <dropDefaultValue tableName="charging_profile" columnName="valid_from" columnDataType="${datetimeType}"/>
+        <dropDefaultValue tableName="charging_profile" columnName="valid_to" columnDataType="${datetimeType}"/>
+        <dropDefaultValue tableName="charging_profile" columnName="start_schedule" columnDataType="${datetimeType}"/>
+    </changeSet>
+
+    <changeSet id="20220528235546-1-relations" author="jhipster">
+
+        <createTable tableName="rel_charging_profile__connector">
+            <column name="connector_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="charging_profile_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="charging_profile_id, connector_id" tableName="rel_charging_profile__connector"/>
+    </changeSet>
+
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here -->
+
+    <!--
+        Load sample data generated with Faker.js
+        - This data can be easily edited using a CSV editor (or even MS Excel) and
+          is located in the 'src/main/resources/config/liquibase/fake-data' directory
+        - By default this data is applied when running with the JHipster 'dev' profile.
+          This can be customized by adding or removing 'faker' in the 'spring.liquibase.contexts'
+          Spring Boot configuration key.
+    -->
+    <changeSet id="20220528235546-1-data" author="jhipster" context="faker">
+        <loadData
+                  file="config/liquibase/fake-data/charging_profile.csv"
+                  separator=";"
+                  tableName="charging_profile"
+                  usePreparedStatements="true">
+            <column name="id" type="numeric"/>
+            <column name="name" type="string"/>
+            <column name="status" type="string"/>
+            <column name="stack_level" type="numeric"/>
+            <column name="charging_profile_purpose" type="string"/>
+            <column name="charging_profile_kind" type="string"/>
+            <column name="recurrency_kind" type="string"/>
+            <column name="valid_from" type="date"/>
+            <column name="valid_to" type="date"/>
+            <column name="duration_in_seconds" type="numeric"/>
+            <column name="start_schedule" type="date"/>
+            <column name="charging_rate_unit" type="string"/>
+            <column name="min_charging_rate" type="numeric"/>
+            <column name="description" type="string"/>
+            <column name="note" type="string"/>
+            <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
+        </loadData>
+    </changeSet>
+</databaseChangeLog>
